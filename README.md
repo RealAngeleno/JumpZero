@@ -12,3 +12,9 @@ URL Path: /index.php?url=[target URL]
 for example, https://example.com/index.php?url=https://google.com
 
 or https://example.com/?url=https://yotuba.com
+
+------
+
+used here:
+
+https://jump.world2ch.net/?url=https://yotuba.com
