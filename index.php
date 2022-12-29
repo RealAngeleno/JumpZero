@@ -15,6 +15,8 @@ $website_host = parse_url($website, PHP_URL_HOST);
 $blocklist = [""];
 //URL blocking. http://example.com/test and https://example.com/test are seen as different URLs. Follows same form as $blocklist, except with URLs.
 $blockurl = [""];
+//Skiplist. (have the jump script immediately redirect to domains listed here ) Follows the exact same form as $blocklist.
+$skiplist = [""];
 
 if ($website == NULL) {
     die("No Link Specified");
@@ -24,6 +26,9 @@ elseif (strpos($website, "https://") !== 0 && strpos($website, "http://") !== 0 
     echo("Invalid URL");
     die();
 }
+//Skip immediately to target domain ($skiplist)
+elseif (in_array($website_host, $skiplist)) {
+    die("Jumping to the following link: <a href='" . htmlspecialchars($website, ENT_QUOTES) . "'>" . htmlspecialchars($website, ENT_QUOTES) . "</a><meta http-equiv='refresh' content='0; URL=$website'>");
 //Domain Blocking
 elseif (in_array($website_host, $blocklist)) {
     die("Sorry, the domain you are attempting to jump to is blocked.");
