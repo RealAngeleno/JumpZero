@@ -36,4 +36,4 @@ echo("Jumping to the following link: <a href='" . htmlspecialchars($website, ENT
 //Auto redirect to whatever site.
 echo("<meta http-equiv='refresh' content='5; URL=$website'>");
 
-echo("<hr>JumpZero");
+echo("<hr><a href='https://github.com/RealAngeleno/JumpZero'>JumpZero</a>");
