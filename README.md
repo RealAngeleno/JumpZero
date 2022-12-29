@@ -1,8 +1,7 @@
 # JumpZero
 A very simple referral cushion/jumper written in PHP.
 
-License: CC0
-do whatever you want with this.
+License: CC0: do whatever you want with this.
 
 Released without warranty.
 
