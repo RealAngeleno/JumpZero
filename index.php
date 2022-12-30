@@ -15,7 +15,7 @@ $website_host = parse_url($website, PHP_URL_HOST);
 $blocklist = [""];
 //URL blocking. http://example.com/test and https://example.com/test are seen as different URLs. Follows same form as $blocklist, except with URLs.
 $blockurl = [""];
-//Skiplist. (have the jump script immediately redirect to domains listed here ) Follows the exact same form as $blocklist.
+//Skiplist. (have the jump script immediately redirect to domains listed here) Follows the exact same form as $blocklist.
 $skiplist = [""];
 
 if ($website == NULL) {
