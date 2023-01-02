@@ -23,8 +23,7 @@ if ($website == NULL) {
 }
 //Die if the url doesn't start with http://, https://, or mailto:
 elseif (strpos($website, "https://") !== 0 && strpos($website, "http://") !== 0 && strpos($website, "mailto:") !== 0) {
-    echo("Invalid URL");
-    die();
+    die("Invalid URL");
 }
 //Skip immediately to target domain ($skiplist)
 elseif (in_array($website_host, $skiplist)) {
