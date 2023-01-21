@@ -13,7 +13,7 @@ $website = filter_var($website, FILTER_SANITIZE_URL);
 $website_host = parse_url($website, PHP_URL_HOST);
 
 //Domain blocking. Only include the domain. (e.g. example.com NOT https://example.com)
-$blocklist = [""];
+$blocklist = [" "];
 //URL blocking. http://example.com/test and https://example.com/test are seen as different URLs.
 $blockurl = [""];
 //Skiplist. (have the jump script immediately redirect to domains listed here ) Only include the domain, not https://.
@@ -26,13 +26,13 @@ elseif (strpos($website, "https://") !== 0 && strpos($website, "http://") !== 0 
     echo("Invalid URL");
     die();
 }
-elseif (in_array($website_host, $skiplist)) {
+elseif (in_array(strtolower($website_host), array_map('strtolower', $skiplist))) {
     die("Quickly jumping to the following link: <a href='" . htmlspecialchars($website, ENT_QUOTES) . "'>" . htmlspecialchars($website, ENT_QUOTES) . "</a><meta http-equiv='refresh' content='0; URL=$website'>");
 }
-elseif (in_array($website_host, $blocklist)) {
+elseif (in_array(strtolower($website_host), array_map('strtolower', $blocklist))) {
     die("Sorry, the domain you are attempting to jump to is blocked.");
 }
-elseif (in_array($website, $blockurl)) {
+elseif (in_array(strtolower($website), array_map('strtolower', $blockurl))) {
     die("Sorry, the URL you are attempting to jump to is blocked.");
     }
 echo("Jumping to the following link: <a href='" . htmlspecialchars($website, ENT_QUOTES) . "'>" . htmlspecialchars($website, ENT_QUOTES) . "</a><br><br>You will automatically be redirected in 5 seconds...");
