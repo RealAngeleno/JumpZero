@@ -18,6 +18,8 @@ $blocklist = [" "];
 $blockurl = [""];
 //Skiplist. (have the jump script immediately redirect to domains listed here ) Only include the domain, not https://.
 $skiplist = ["world2ch.net"];
+//NoAutoList. Prevent the jump script from automatically jumping to certain domains. Only include the domain.
+$noautolist = [" "];
 
 if ($website == NULL) {
     die("No Link Specified");
@@ -35,6 +37,9 @@ elseif (in_array(strtolower($website_host), array_map('strtolower', $blocklist))
 elseif (in_array(strtolower($website), array_map('strtolower', $blockurl))) {
     die("Sorry, the URL you are attempting to jump to is blocked.");
     }
+elseif (in_array(strtolower($website_host), array_map('strtolower', $noautolist))) {
+    die("Jumping to the following link: <a href='" . htmlspecialchars($website, ENT_QUOTES) . "'>" . htmlspecialchars($website, ENT_QUOTES) . "</a><br><br><font color=red>This domain may contain immoral content. Click the URL to continue.</font><br><hr><a href='https://github.com/RealAngeleno/JumpZero'>JumpZero</a>");
+}
 echo("Jumping to the following link: <a href='" . htmlspecialchars($website, ENT_QUOTES) . "'>" . htmlspecialchars($website, ENT_QUOTES) . "</a><br><br>You will automatically be redirected in 5 seconds...");
 //Auto redirect to whatever site.
 echo("<meta http-equiv='refresh' content='5; URL=$website'>");
