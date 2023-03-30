@@ -38,7 +38,7 @@ elseif (in_array(strtolower($website), array_map('strtolower', $blockurl))) {
     die("Sorry, the URL you are attempting to jump to is blocked.");
     }
 elseif (in_array(strtolower($website_host), array_map('strtolower', $noautolist))) {
-    die("Jumping to the following link: <a href='" . htmlspecialchars($website, ENT_QUOTES) . "'>" . htmlspecialchars($website, ENT_QUOTES) . "</a><br><br><font color=red>This domain may contain immoral content. Click the URL to continue.</font><br><hr><a href='https://github.com/RealAngeleno/JumpZero'>JumpZero</a>");
+    die("Jumping to the following link: <a href='" . htmlspecialchars($website, ENT_QUOTES) . "'>" . htmlspecialchars($website, ENT_QUOTES) . "</a><br><br><font color=red>This domain may contain questionable content. Click the URL to continue.</font><br><hr><a href='https://github.com/RealAngeleno/JumpZero'>JumpZero</a>");
 }
 echo("Jumping to the following link: <a href='" . htmlspecialchars($website, ENT_QUOTES) . "'>" . htmlspecialchars($website, ENT_QUOTES) . "</a><br><br>You will automatically be redirected in 5 seconds...");
 //Auto redirect to whatever site.
